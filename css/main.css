@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Protest Riot", sans-serif;
+  user-select: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+:root {
+  --clr: rgba(37, 33, 33, 1);
+}
+
+section {
+  display: flex;
+  min-height: 100vh;
+  background: var(--clr);
+  /* padding: 70px; */
+}
+
+section .aside {
+  flex: 2;
+}
+
+section .main {
+  flex: 8;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 60px;
+}
+
+section .main .card {
+  position: relative;
+  background: #fff;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+  height: 300px;
+  z-index: 10;
+}
+section .main .active {
+  height: 350px;
+}
+section .main .card .imgBx {
+  position: absolute;
+  inset: 15px 35px 55px 35px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+section .main .active .imgBx {
+  inset: -50px 60px 220px 60px;
+  box-shadow: 0 0 0 17px var(--clr);
+}
+
+.main .card .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.main .card p {
+  position: relative;
+  padding: 40px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(80px);
+}
+.main .card h2 {
+  position: relative;
+  transform: translateY(15px);
+  transition: 0.3s;
+  border-radius: 12px;
+}
+.main .active p {
+  visibility: visible;
+  transform: translateY(78px);
+  transition: 1s;
+  opacity: 1;
+  transition: 0.2s;
+}
+.main .active h2 {
+  background: rgb(251, 251, 250);
+  padding: 10px 25px;
+  transform: translateY(65px);
+  border-radius: 12px;
+  transition: 0.5s;
+  box-shadow: 0 0 0 12px var(--clr);
+}
+@media screen and (orientation: portrait) {
+  section .main {
+    flex-direction: column;
+    gap: 12vh 7vw;
+  }
+  section .aside {
+    display: none;
+  }
+  section {
+    padding: 10vh 0;
+  }
+}
